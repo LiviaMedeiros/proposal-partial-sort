@@ -16,6 +16,34 @@ const [ itemFirst, itemSecond, itemThird ] = array.toSorted(compareFn);
 
 Any of these approaches has an issue when `array.length ≫ k`: before taking the few elements, we have to perform full sort and allocate new array, even though most of items will be discarded right away. This comes with significant overhead in terms of both CPU time and memory consumption.
 
+### Typical usecases
+
+#### Leaderboards & ranking
+
+Textbook example, rank and show top scores.
+
+This pattern applies to game leaderboards, most active users, popular products, etc.
+
+#### Analytics and reporting
+
+Anything where we have a lot of data, define a metric and want to see "top few X that Y the most".
+
+- Most frequent search queries
+- Products with highest/lowest revenue
+- Most common errors or warnings
+- Most CPU-heavy or memory-heavy tasks
+- Basically any other business-specific analytics
+
+#### Search and recommendation systems
+
+Searching systems often calculate relevance score and show top k items sorted by this score.
+
+The selection is frequently shuffled to make it less irrigatingly obvious and spliced with promoted items but the basic way to get the selected set is usually partial sort.
+
+#### Anything else where full sorting takes too much resources
+
+Let's say, we are running out of space and want to find biggest files. There might be millions of files and we don't need more than 100, but sorting them will cause OOM.
+
 ## Solution
 
 We can improve this from `O(n log n)` time and `O(n)` space complexity to `O(n log k)` time and `O(k)` memory by ignoring every `x > max(H)` element, where `H` is the set of element currently held.
@@ -33,7 +61,6 @@ const topItemsFromFuture = array.top(3); // [ 1, 2, 3 ]
 
 `Iterator.prototype.top(k, compareFn)`. Same but for `Iterator`.
 `TypedArray.prototype.top(k, compareFn)`. Same but for `TypedArray`s.
-
 
 ## Prior art
 

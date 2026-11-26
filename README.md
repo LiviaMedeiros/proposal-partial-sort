@@ -81,7 +81,12 @@ const topItemsFromFuture = array.top(3); // [ 1, 2, 3 ]
 
 ## Alternative API
 
-We may consider extending `Array.prototype.toSorted(compareFn)` into `Array.prototype.toSorted(compareFn, k)`.
+We could consider extending `Array.prototype.toSorted(compareFn)` into `Array.prototype.toSorted(compareFn, k)`.
+
+This proposal prefers defining separate method, because:
+- Adding new method is likely to be less breaking change than changing signature of already implemented method
+- The internal implementation for partial sort should be different from regular sort, which will likely introduce incompatibility or surprising behaviour (especially if `compareFn` has side effects)
+- We don't chanse inplace partial sort so it would be incompatible with `Array.prototype.sort`
 
 ## Polyfill
 

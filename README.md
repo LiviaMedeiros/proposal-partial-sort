@@ -91,3 +91,7 @@ This proposal prefers defining separate method, because:
 ## Polyfill
 
 TBD
+
+## Benchmarks
+
+TBD

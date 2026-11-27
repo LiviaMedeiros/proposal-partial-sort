@@ -94,6 +94,12 @@ See [polyfill.mjs](./polyfill.mjs).
 
 This polyfill is not production-ready, does not follow any formal spec, and will definitely have multiple breaking changes.
 
-## Benchmarks
+## Benchmark
+
+See [benchmark.mjs](./benchmark.mjs).
+
+The benchmark uses Node.js's builtin `node:bench` module. It compares polyfilled `Array.prototype.top()` impelementation against `.toSorted().slice()` and `iter-tools`'s `__takeSorted()`.
+
+### Benchmark results
 
 TBD

@@ -90,7 +90,9 @@ This proposal prefers defining separate method, because:
 
 ## Polyfill
 
-TBD
+See [polyfill.mjs](./polyfill.mjs).
+
+This polyfill is not production-ready, does not follow any formal spec, and will definitely have multiple breaking changes.
 
 ## Benchmarks
 

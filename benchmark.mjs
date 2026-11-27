@@ -14,12 +14,12 @@ function* makeIterable(n) {
 }
 
 const sizes = [
-  { n: 1e1, ks: [1e1] },
-  { n: 1e2, ks: [1e1, 1e2] },
-  { n: 1e3, ks: [1e1, 1e2, 1e3] },
-  { n: 1e4, ks: [1e1, 1e2, 1e3, 1e4] },
-  { n: 1e5, ks: [1e1, 1e2, 1e3, 1e4, 1e5] },
-  { n: 1e6, ks: [1e1, 1e2, 1e3, 1e4, 1e5, 1e6] },
+  { n: 1e1, ks: [1, 1e1] },
+  { n: 1e2, ks: [1, 1e1, 1e2] },
+  { n: 1e3, ks: [1, 1e1, 1e2, 1e3] },
+  { n: 1e4, ks: [1, 1e1, 1e2, 1e3, 1e4] },
+  { n: 1e5, ks: [1, 1e1, 1e2, 1e3, 1e4, 1e5] },
+  { n: 1e6, ks: [1, 1e1, 1e2, 1e3, 1e4, 1e5, 1e6] },
 ];
 
 for (const { n, ks } of sizes) {
